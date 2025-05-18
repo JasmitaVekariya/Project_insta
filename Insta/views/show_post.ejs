@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Posts</title>
+</head>
+<body>
+    <h1>Posts by <%= posts.length > 0 ? posts[0].name : 'Unknown User' %></h1>
+
+    <% if (posts.length === 0) { %>
+        <p>No posts found for this user.</p>
+    <% } else { %>
+        <% posts.forEach(post => { %>
+            <div style="border:1px solid #ccc; margin:20px; padding:10px;">
+                <p><strong>Post ID:</strong> <%= post.id %></p>
+                <p><strong>Content:</strong> <%= post.content %></p>
+                <p><strong>Posted At:</strong> <%= post.created_at.toLocaleString() %></p>
+                <% if (post.img) { %>
+                    <img src="/uploads/<%= post.img %>" alt="Post Image" style="max-width:300px;"><br>
+                <% } %>
+            </div>
+        <% }) %>
+    <% } %>
+
+    <a href="/user">Back to Users</a>
+</body>
+</html>

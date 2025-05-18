@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User </h1>
+
+
+    <% for(let user of users) { %>
+        <hr>
+        <div class="user">
+            <h4><%= user.id %></h4>
+            <p><%= user.name %></p>
+            <p><%= user.email %></p>
+            <form method="get" action="/user/<%= user.id %>/edit">
+                <button>Edit Username</button>
+            </form>
+            <a href="http://localhost:8080/user/<%= user.id %>/post/add">Add post</a>
+            <a href="/user/<%= user.id %>/posts">View Posts</a>
+        </div>
+        <hr>
+    <% } %>
+</body>
+</html>
